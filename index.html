@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Random Images and Music</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevent scrolling */
+            background-color: #000; /* Black background */
+            cursor: pointer; /* Encourage clicking */
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #image-container {
+            position: fixed; /* Use fixed positioning */
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #random-image {
+            width: 100%; /* Ensure the image covers the width of its container */
+            height: 100%; /* Ensure the image covers the height of its container */
+            object-fit: contain; /* Scale the image to maintain its aspect ratio */
+            min-width: 100%; /* Minimum width to cover the container */
+            min-height: 100%; /* Minimum height to cover the container */
+            position: absolute; /* Positioned absolutely within its container */
+            top: 0;
+            left: 0;
+        }
+
+        #start-text {
+    color: #FFFFFF; /* Or a color that stands out against your background */
+    font-size: 2em;
+    text-shadow: 2px 2px 4px #000000; /* Soft shadow for readability */
+}
+        #song-name {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: blue;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out; /* Updated to 2 seconds */
+    z-index: 20;
+}
+        #start-prompt {
+            position: absolute; /* Make sure the prompt is visible above the image */
+            z-index: 10; /* Above the image */
+            color: white; /* White text color for visibility */
+            font-size: 24px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="dynamic-background">
+    <div id="start-prompt">Click anywhere to start</div>
+    <div id="image-container">
+    <img src="" id="random-image" alt="Random Image" style="display: none;"> <!-- Initially hidden -->
+</div>
+    <audio id="random-music" muted></audio>
+    <div id="song-name"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
